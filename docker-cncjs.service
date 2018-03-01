@@ -6,10 +6,18 @@ Requires=docker.service
 [Service]
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=-/usr/bin/docker stop %n
-ExecStartPre=-/usr/bin/docker rm %n
-ExecStartPre=/usr/bin/docker pull sprack/docker-raspi-cncjs:latest
-ExecStart=/usr/bin/docker run --rm -t -p 80:8000--name %n sprack/docker-raspi-cncjs:latest
+ExecStartPre=/usr/bin/docker pull redis
+ExecStart=/usr/bin/docker run --rm -t \
+  --privileged \
+  -p 80:8000 \
+  -v /dev:/dev \
+  -v ~/.cncrc:/root/.cncrc \
+  -v /path/to/dir:/watchdir \
+  --name %n \
+  sprack/docker-raspi-cncjs:latest
+ExecStopPost=/usr/bin/docker stop %n
+ExecStop=/usr/bin/docker rm %n
+ExecReload=/usr/bin/docker restart %n
 
 [Install]
 WantedBy=multi-user.target

@@ -1,0 +1,45 @@
+{
+    "watchDirectory": "/watchdir",
+    "state": {
+        "checkForUpdates": false,
+        "controller": {
+            "exception": {
+                "ignoreErrors": false
+            }
+        }
+    },
+    "secret": "$2a$10$7AzBRboQY4PIqvwh0Wj1te",
+    "macros": [
+        {
+            "id": "bcddae1b-d8e6-4ef4-b2df-c0cd24ea7041",
+            "mtime": 1560099151969,
+            "name": "TOOL CHANGE",
+            "content": "%CLEARANCE_HEIGHT = 100\n%TOOL_CHANGE_X = -300\n%TOOL_CHANGE_Y = -300\n%TOOL_CHANGE_Z = CLEARANCE_HEIGHT\n%TOOL_PROBE_
+X = 0\n%TOOL_PROBE_Y = 0\n%TOOL_PROBE_Z = 20\n%PROBE_DISTANCE = 15\n%PROBE_FEEDRATE = 20\n%TOUCH_PLATE_HEIGHT = 10\n%RETRACTION_DISTANCE = 10"
+        }
+    ],
+    "mdi": [],
+    "machines": [
+        {
+            "name": "Shapeoko 3 XXL",
+            "limits": {
+                "xmin": 0,
+                "xmax": 850,
+                "ymin": 0,
+                "ymax": 850,
+                "zmin": 0,
+                "zmax": 80
+            },
+            "id": "241944ba-9a33-437a-a63a-ddc53e32960a"
+        }
+    ],
+    "commands": [
+        {
+            "id": "49985177-0c0f-4ff4-b0f5-b6327587e25b",
+            "mtime": 1560105838391,
+            "enabled": false,
+            "title": "KILL ALARM",
+            "commands": "$X"
+        }
+    ]
+}

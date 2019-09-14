@@ -14,5 +14,4 @@ tag_latest:
 
 push:
 	docker push $(NAME):$(VERSION)
-	docker push $(NAME):latest
 
